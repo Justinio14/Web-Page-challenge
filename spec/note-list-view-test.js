@@ -40,7 +40,7 @@ function displayWithIndividualUrl() {
 	list = new NoteList
 	list.AddNote('Test string');
 	view = new NoteView(list);
-	assert.isTrue(view.urlDisplay() === "<ul><li><a href='http://localhost:8080#notes/0'>Test string</a></li></ul>");
+	assert.isTrue(view.urlDisplay() === "<ul><li><a href='http://localhost:8080#notes/11'>Test string</a></li></ul>");
 };
 
 displayWithIndividualUrl()

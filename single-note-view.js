@@ -1,8 +1,7 @@
 (function(exports) {
 
   function SingleNoteView(note = new Note()) {
-    this.note = note
-
+    this.note = note;
   };
 
   SingleNoteView.prototype.viewNote = function() {

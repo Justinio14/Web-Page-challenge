@@ -6,7 +6,7 @@
   };
 
   NoteList.prototype.AddNote = function(noteContent) {
-      this.notes.push(new Note(noteContent, this.notes.length));
+      this.notes.push(new Note(noteContent));
   }
 
   NoteList.prototype.GetNotes = function() {

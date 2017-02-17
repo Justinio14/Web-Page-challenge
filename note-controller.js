@@ -2,51 +2,53 @@
 
 
 
-  function NoteController(newlist = new NoteList) {
+  function NoteController(newlist = new NoteList()) {
     this._newList = newlist;
-    this._view = new NoteView(newlist);
-    var controller = this;
-  }
+    this._view = new NoteView(this._newList);
+    controller = this;
+  };
 
-  NoteController.prototype.WebPost = function() {
-    var elem = document.getElementById('app');
-      document.body.innerHTML = this._view.display();
-  }
+  // NoteController.prototype.WebPost = function() {
+  //   var el = document.getElementById('app');
+  //     el.innerHTML = this._view.display();
+  // }
 
   NoteController.prototype.WebURLPost = function() {
     var elem = document.getElementById('app');
-    document.body.innerHTML = this._view.urlDisplay();
+    elem.innerHTML = this._view.urlDisplay();
   }
 
+
     exports.NoteController = NoteController;
+
 
   makeUrlsShowForCurrentPage();
 
   function makeUrlsShowForCurrentPage() {
-    window.addEventListener("hashchange", showNoteForCurrentPage());
+    window.addEventListener("hashchange", showNoteForCurrentPage);
   };
 
   function showNoteForCurrentPage() {
+    console.log(window.location);
     showNote(getNoteFromUrl(window.location));
   };
 
   function getNoteFromUrl(location) {
-    return location.hash.split("#")[1];
+    console.log(location.hash.split("#notes/")[1]);
+    return location.hash.split("#notes/")[1];
   } ;
 
   function showNote(id) {
-    // var thisnote = findNote(id)
-    var elem = document.getElementById("app")
-    document.body.innerHTML = new SingleNoteView(thisnote);
+    var thisnote = findNote(id)
+    view = document.getElementById("view");
+    view.innerHTML = new SingleNoteView(thisnote).viewNote();
   };
 
-  // function findNote(id) {
-  //   console.log(controller._newList);
-  //   for (var i = 0; i < this._newList.notes.length; i++) {
-  //     if (this._newList.notes[i].id == id) return this._newList.notes[i]
-  //   }
-  // }
+  function findNote(id) {
 
-
+    for (var i=0; i<controller._newList.notes.length; i++) {
+      if (controller._newList.notes[i].id == id) return controller._newList.notes[i]
+    }
+  }
 
 })(this);

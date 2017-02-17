@@ -20,7 +20,7 @@ function CheckNoteControllerCanDisplayURLlist() {
 	var newlist = new NoteList();
 	var controller = new NoteController(newlist);
 	newlist.AddNote("thistestsURLlinkdisplay");
-	assert.isTrue(controller._view.urlDisplay() === "<ul><li><a href='http://localhost:8080#notes/0'>thistestsURLlinkdis</a></li></ul>");
+	assert.isTrue(controller._view.urlDisplay() === "<ul><li><a href='http://localhost:8080#notes/1'>thistestsURLlinkdis</a></li></ul>");
 
 };
 
