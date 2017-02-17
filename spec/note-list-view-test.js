@@ -27,3 +27,20 @@ function canFormatEmptyList() {
 };
 
 canFormatEmptyList()
+
+function returnTextWithTwentyChars() {
+	view = new NoteView;
+	view._list.AddNote('This string is longER THAN TWENTY CHARS');
+	assert.isTrue(view.limitedDisplay() === '<ul><li>This string is long</li></ul>');
+};
+
+returnTextWithTwentyChars()
+
+function displayWithIndividualUrl() {
+	list = new NoteList
+	list.AddNote('Test string');
+	view = new NoteView(list);
+	assert.isTrue(view.urlDisplay() === "<ul><li><a href='http://localhost:8080#notes/0'>Test string</a></li></ul>");
+};
+
+displayWithIndividualUrl()
