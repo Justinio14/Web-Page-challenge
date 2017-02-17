@@ -18,7 +18,6 @@
      this._listednotes.forEach(function(note) {
        limitedResult += '<li>' + note.text.substring(0,19) + '</li>'
      });
-     console.log(limitedResult);
      return ("<ul>" + limitedResult + "</ul>")
     }
 
@@ -27,7 +26,6 @@
       this._listednotes.forEach(function(note) {
         notesUrl += "<li><a href='http://localhost:8080#notes/" + note.id + "'" + ">" + note.text.substring(0,19) + "</a></li>"
       })
-      console.log(notesUrl);
       return ("<ul>" + notesUrl + "</ul>");
     }
 
